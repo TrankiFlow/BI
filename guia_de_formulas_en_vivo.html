@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Fórmulas en Vivo | Machete para Mirty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .formula-box {
+            background-color: #020617;
+            border: 1px solid #334155;
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+    <!-- Header -->
+    <header class="bg-slate-900 border-b border-slate-800 py-8 px-6 mb-8 sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-500/10 text-brand-400 rounded-full text-xs font-semibold mb-2 border border-brand-500/20">
+                    <i class="fa-solid fa-chalkboard-user"></i> Machete para algunas formulas
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-white">Guía Didáctica de Fórmulas en Vivo</h1>
+                <p class="text-slate-400 text-sm">Explicaciones sencillas, desglose parte por parte y guiones para la sala de Discord.</p>
+            </div>
+            
+            <!-- Buscador / Filtro Rápido -->
+            <div class="flex items-center gap-2 bg-slate-800 p-1.5 rounded-xl border border-slate-700">
+                <button onclick="filterCategory('all')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-brand-600 text-white" data-cat="all">Todas</button>
+                <button onclick="filterCategory('limpieza')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white" data-cat="limpieza">Limpieza</button>
+                <button onclick="filterCategory('cruce')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white" data-cat="cruce">Cruces</button>
+                <button onclick="filterCategory('stats')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white" data-cat="stats">Estadística</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 space-y-8">
+
+        <!-- FÓRMULA 1: DUPLICADOS -->
+        <article class="formula-card glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-yellow-500" data-category="limpieza">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <span class="bg-yellow-500/20 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full border border-yellow-500/30">
+                    <i class="fa-solid fa-copy mr-1"></i> Detección de Duplicados
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Control de Unicidad</span>
+            </div>
+
+            <h2 class="text-xl font-bold text-white mb-3">1. Detectar si un ID o fila está duplicado</h2>
+
+            <!-- Código de la fórmula -->
+            <div class="formula-box p-4 rounded-xl flex items-center justify-between gap-4 mb-6">
+                <code class="text-yellow-400 font-mono text-sm md:text-base break-all">
+                    =SI(CONTAR.SI(columna donde esta el dato; Dato a buscar)>1; "DUPLICADO"; "Único")
+                </code>
+                <button onclick="copyToClipboard('=SI(CONTAR.SI(A$2:A$2524; A2)>1; &quot;DUPLICADO&quot;; &quot;Único&quot;)')" class="copy-btn shrink-0 bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 border border-slate-600">
+                    <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+            </div>
+
+            <!-- Speech -->
+            <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50 mb-6">
+                <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-comment-dots"></i> Ejemplo:
+                </h4>
+                <p class="text-slate-300 text-sm italic leading-relaxed">
+                    "Imaginemos que le pedimos a Sheets que busque la ID de esta venta en toda la columna. Si la encuentra más de una vez, significa que está repetida y nos pone el cartel de 'DUPLICADO'. Si la encuentra una sola vez, nos pone 'Único'."
+                </p>
+            </div>
+
+            <!-- Desglose -->
+            <h4 class="text-sm font-bold text-white mb-3">🧩 Desglose de la Fórmula:</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-xs">
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-yellow-400 font-mono">CONTAR.SI(A$2:A$2524; A2):</strong>
+                    <span class="text-slate-300 block mt-1">Cuenta cuántas veces aparece el valor de la celda A2 dentro de todo el rango de datos.</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-yellow-400 font-mono">> 1:</strong>
+                    <span class="text-slate-300 block mt-1">Es la pregunta lógica: "¿Aparece más de 1 vez?".</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-yellow-400 font-mono">"DUPLICADO":</strong>
+                    <span class="text-slate-300 block mt-1">El resultado si la respuesta a la pregunta es SÍ.</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-yellow-400 font-mono">"Único":</strong>
+                    <span class="text-slate-300 block mt-1">El resultado si la respuesta a la pregunta es NO.</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- FÓRMULA 2: BUSCARV -->
+        <article class="formula-card glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-blue-500" data-category="cruce">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30">
+                    <i class="fa-solid fa-link mr-1"></i> Cruce de Tablas (Integración)
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Integración Referencial</span>
+            </div>
+
+            <h2 class="text-xl font-bold text-white mb-3">2. Traer información de otra tabla (BUSCARV)</h2>
+
+            <!-- Código de la fórmula -->
+            <div class="formula-box p-4 rounded-xl flex items-center justify-between gap-4 mb-4">
+                <code class="text-blue-400 font-mono text-sm md:text-base break-all">
+                    =BUSCARV(dato a buscar; matriz de datos a traer; columna de datos a traer; 0)
+                </code>
+                <button onclick="copyToClipboard('=BUSCARV(D2; Productos!A:D; 4; FALSO)')" class="copy-btn shrink-0 bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 border border-slate-600">
+                    <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+            </div>
+
+            <!-- Alerta didáctica -->
+            <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl mb-6 text-xs text-amber-200 flex items-start gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5"></i>
+                <span><strong>¡Atención con la matriz a elegir!</strong> La primer columna del rango da datos de la matriz debe corresponder a la columna donde se encuentra el dato a buscar, si no lo va a encontrar y nos va a dar <code>#N/A</code> En la fórmula puse un <code>0</code> al final, para buscar productos exactos en la matriz <strong>siempre debe ir 0 o FALSO</strong>. Si ponés 1 (coincidencia aproximada), Sheets te va a traer precios de productos equivocados si la tabla no está perfectamente ordenada. y solo busca en columnas de datos unicos, si el dato esta repetido te va a traer el primero que encuentre al recorrer la matriz, ¡OJO CON ESO!</span>
+            </div>
+
+            <!-- Speech -->
+            <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50 mb-6">
+                <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-comment-dots"></i> Ejemplo:
+                </h4>
+                <p class="text-slate-300 text-sm italic leading-relaxed">
+                    "BUSCARV es como ir a un catálogo con un código de producto anotado en un papel. Le decimos: 'Agarrá el código D2, andá a la pestaña Productos, buscá en las columnas de la A a la D, y cuando lo encuentres, traeme el dato de la columna B, número 2 (el precio). El FALSO al final es para exigirle que la coincidencia sea exacta'."
+                </p>
+            </div>
+
+            <!-- Desglose -->
+            <h4 class="text-sm font-bold text-white mb-3">🧩 Desglose de los 4 Ingredientes de BUSCARV:</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-xs">
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-blue-400 font-mono">1. D2 (Valor buscado):</strong>
+                    <span class="text-slate-300 block mt-1">El código o clave que tenemos en nuestra fila actual (ej. ID_Producto).</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-blue-400 font-mono">2. Productos!A:D (Matriz/Rango):</strong>
+                    <span class="text-slate-300 block mt-1">Dónde va a ir a buscar. La primera columna (A) DEBE tener los IDs.</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-blue-400 font-mono">3. 4 (Índice de columna):</strong>
+                    <span class="text-slate-300 block mt-1">El número de columna de la cual queremos extraer el dato (1=A, 2=B, 3=C, 4=D).</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <strong class="text-blue-400 font-mono">4. FALSO (Ordenado):</strong>
+                    <span class="text-slate-300 block mt-1">Busca la coincidencia exacta. ¡Nunca usen VERDADERO para IDs!</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- FÓRMULA 3: CONCATENAR -->
+        <article class="formula-card glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-teal-500" data-category="limpieza">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <span class="bg-teal-500/20 text-teal-300 text-xs font-bold px-3 py-1 rounded-full border border-teal-500/30">
+                    <i class="fa-solid fa-font mr-1"></i> Unión de Textos
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Formato y Estandarización</span>
+            </div>
+
+            <h2 class="text-xl font-bold text-white mb-3">3. Unir texto de celdas distintas. Ejemplo: (Nombre y Apellido)</h2>
+
+            <!-- Código de la fórmula -->
+            <div class="formula-box p-4 rounded-xl flex items-center justify-between gap-4 mb-4">
+                <code class="text-teal-400 font-mono text-sm md:text-base break-all">
+                    =CONCATENAR(B2; " "; C2)
+                </code>
+                <button onclick="copyToClipboard('=CONCATENAR(B2; &quot; &quot;; C2)')" class="copy-btn shrink-0 bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 border border-slate-600">
+                    <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+            </div>
+
+            <!-- Tip Alternativo -->
+            <div class="bg-slate-900 p-3 rounded-xl mb-6 text-xs text-slate-300 flex items-center justify-between border border-slate-800">
+                <span><strong>Forma corta con ampersand (&):</strong> <code>=B2 & " " & C2</code></span>
+                <span class="text-slate-500 font-mono">Hace exactamente lo mismo</span>
+            </div>
+
+            <!-- Speech -->
+            <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50 mb-6">
+                <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-comment-dots"></i> Ejemplo:
+                </h4>
+                <p class="text-slate-300 text-sm italic leading-relaxed">
+                    "A veces la base tiene el Nombre en la columna B y el Apellido en la C. Para unificar el cliente en una sola celda usamos CONCATENAR. Ojo con el detalle de poner <code>&quot; &quot;</code> (un espacio entre comillas) en el medio, porque si no pegamos el nombre y apellido todo junto sin espacio."
+                </p>
+            </div>
+        </article>
+
+        <!-- FÓRMULA 4: CELDAS VACÍAS -->
+        <article class="formula-card glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-red-500" data-category="limpieza">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <span class="bg-red-500/20 text-red-300 text-xs font-bold px-3 py-1 rounded-full border border-red-500/30">
+                    <i class="fa-solid fa-square-check mr-1"></i> Control de Completitud
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Celdas Vacías y Nulos</span>
+            </div>
+
+            <h2 class="text-xl font-bold text-white mb-3">4. Detectar y contar celdas vacías</h2>
+
+            <!-- Dos opciones de código -->
+            <div class="space-y-3 mb-6">
+                <div class="formula-box p-4 rounded-xl flex items-center justify-between gap-4">
+                    
+                    <div>
+                        <span class="text-xs text-slate-400 block mb-1">Opción A: Contar el total de faltantes en una columna</span>
+                        <code class="text-red-400 font-mono text-sm break-all">=CONTAR.BLANCO(A2:A2524)</code>
+                    </div>
+                    <button onclick="copyToClipboard('=CONTAR.BLANCO(A2:A)')" class="copy-btn shrink-0 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-600">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="formula-box p-4 rounded-xl flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 block mb-1">Opción B: Marcar fila por fila si falta el dato</span>
+                        <code class="text-red-400 font-mono text-sm break-all">=SI(A2=""; "Falta dato"; "OK")</code>
+                    </div>
+                    <button onclick="copyToClipboard('=SI(A2=&quot;&quot;; &quot;Falta dato&quot;; &quot;OK&quot;)')" class="copy-btn shrink-0 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition border border-slate-600">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+                
+            </div>
+
+            <!-- Speech -->
+            <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
+                <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-comment-dots"></i> Ejemplo:
+                </h4>
+                <p class="text-slate-300 text-sm italic leading-relaxed">
+                    "Para verificar el criterio de Completitud de una columna, usamos <code>=CONTAR.BLANCO</code>. Si nos da 0, significa que la base está al 100% llena en esa columna. Si nos da un número mayor a cero, aplicamos un Filtro en la cabecera y desmarcamos todo dejando tildado solo '(Vacíos)' para ver exactamente qué filas fallaron." <br>
+                    otra alternativa mas simple es poner un filtro y filtrar cada columna por separado, destildamos todos y tildamos vacío, y nos muestra los datos vacios de esa columna
+                </p>
+            </div>
+        </article>
+
+        <!-- FÓRMULA 5: LOS 4 NÚMEROS DORADOS -->
+        <article class="formula-card glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-purple-500" data-category="stats">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <span class="bg-purple-500/20 text-purple-300 text-xs font-bold px-3 py-1 rounded-full border border-purple-500/30">
+                    <i class="fa-solid fa-chart-line mr-1"></i> Estadística Descriptiva
+                </span>
+                <span class="text-xs text-slate-400 font-mono">Los 4 Números Dorados</span>
+            </div>
+
+            <h2 class="text-xl font-bold text-white mb-3">5. Cálculos estadísticos sobre el Total de Ventas</h2>
+            <p class="text-slate-400 text-xs mb-6">Recordá enseñarles que estos cálculos se aplican únicamente sobre las ventas en estado <strong>Completa</strong>.</p>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                
+                <!-- Media -->
+                <div class="formula-box p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-2">
+                        <strong class="text-brand-400 text-sm">Media / Promedio</strong>
+                        <button onclick="copyToClipboard('=PROMEDIO(J2:J)')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded border border-slate-700"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <code class="text-slate-200 font-mono text-xs block mb-2">=PROMEDIO(J2:J)</code>
+                    <p class="text-slate-400 text-xs"><strong>Información:</strong> "Es la suma de todos los montos dividida por la cantidad de ventas. Nos da el 'ticket promedio'."</p>
+                </div>
+
+                <!-- Mediana -->
+                <div class="formula-box p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-2">
+                        <strong class="text-brand-400 text-sm">Mediana</strong>
+                        <button onclick="copyToClipboard('=MEDIANA(J2:J)')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded border border-slate-700"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <code class="text-slate-200 font-mono text-xs block mb-2">=MEDIANA(J2:J)</code>
+                    <p class="text-slate-400 text-xs"><strong>Información:</strong> "Es el número que queda exacto en el medio al ordenar las ventas de menor a mayor. El 50% vendió menos que esto y el 50% vendió más."</p>
+                </div>
+
+                <!-- Moda -->
+                <div class="formula-box p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-2">
+                        <strong class="text-brand-400 text-sm">Moda</strong>
+                        <button onclick="copyToClipboard('=MODA(J2:J)')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded border border-slate-700"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <code class="text-slate-200 font-mono text-xs block mb-2">=MODA(J2:J)</code>
+                    <p class="text-slate-400 text-xs"><strong>Información:</strong> "El importe que más veces se repitió en la facturación."</p>
+                </div>
+
+                <!-- Desviación Estándar -->
+                <div class="formula-box p-4 rounded-xl">
+                    <div class="flex justify-between items-center mb-2">
+                        <strong class="text-brand-400 text-sm">Desviación Estándar</strong>
+                        <button onclick="copyToClipboard('=DESVESTP(J2:J)')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded border border-slate-700"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <code class="text-slate-200 font-mono text-xs block mb-2">=DESVESTP(J2:J)</code>
+                    <p class="text-slate-400 text-xs"><strong>Información:</strong> "Mide qué tan alejadas están las ventas del promedio. Si es baja, los montos son muy parejos; si es alta, hay compras muy chicas y compras gigantes."</p>
+                </div>
+
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-brand-600 text-white px-5 py-3 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-2 text-sm font-semibold border border-brand-400">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span>¡Fórmula copiada al portapapeles!</span>
+    </div>
+
+    <script>
+        // Filtros por Categoría
+        function filterCategory(cat) {
+            const cards = document.querySelectorAll('.formula-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.classList.add('bg-brand-600', 'text-white');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('bg-brand-600', 'text-white');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copiar al portapapeles con fallback
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(showToast);
+            } else {
+                let textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast();
+                } catch (err) {
+                    console.error('Error al copiar', err);
+                }
+                textArea.remove();
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Entrega de Proyecto | Datawise Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animaciones suaves y estilos personalizados */
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6d28d9, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .task-checkbox:checked + label {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+        /* Acordeón para las tablas */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen pb-12">
+
+    <!-- Header Hero -->
+    <header class="bg-brand-900 text-white py-16 px-6 relative overflow-hidden shadow-2xl rounded-b-[3rem] mb-10">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center justify-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 text-sm font-semibold tracking-wide border border-white/30">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Datawise Consulting</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+                Pre-Entrega de <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300">Proyecto BI</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-purple-100 font-light max-w-2xl mx-auto">
+                Tu camino para convertirte en un analista de datos estratégico.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 relative z-20 -mt-16">
+        
+        <!-- Welcome Card -->
+        <section class="glass-card rounded-2xl shadow-xl p-8 mb-10 border-t-4 border-brand-500 transform hover:-translate-y-1 transition duration-300">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-brand-900">
+                <i class="fa-solid fa-handshake text-brand-500"></i> Bienvenidos a la primera evaluación
+            </h2>
+            <p class="mb-4 leading-relaxed text-slate-600">
+                Con este proyecto práctico, tendrás la oportunidad de demostrar los conocimientos adquiridos y tendrás la posibilidad de ser seleccionado para formar parte de nuestro equipo.
+            </p>
+            <p class="mb-6 leading-relaxed text-slate-600">
+                Tu misión será demostrar tus conocimientos y habilidades en Business Intelligence (BI) a través de un desafío que refleja situaciones y decisiones que enfrentarías en un entorno profesional. Esta actividad te enfrentará a retos diarios que pondrán a prueba tu capacidad para resolver problemas y comunicar ideas efectivamente. Al final, deberás presentar un trabajo final que no solo refleje tu aprendizaje, sino también tu comprensión de cómo BI agrega valor en el entorno empresarial.
+            </p>
+            <div class="bg-brand-50 rounded-xl p-6 text-center border border-brand-100">
+                <h3 class="text-lg font-bold text-brand-700 mb-2">¡Prepárate para convertirte en un integrante de Datawise Consulting!</h3>
+                <p class="text-2xl">¡Buena suerte! ✨✨</p>
+            </div>
+        </section>
+
+        <!-- Caso de estudio & Datasets -->
+        <section class="grid md:grid-cols-2 gap-8 mb-10">
+            <div class="glass-card rounded-2xl shadow-lg p-8 border border-slate-200">
+                <h2 class="text-2xl font-bold mb-4 text-slate-800">
+                    <i class="fa-solid fa-cart-shopping text-blue-500 mr-2"></i> Análisis de Ventas
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Esta etapa del trabajo práctico integrador se centrará en el análisis de datos de ventas para una <strong>empresa de e-commerce</strong>. A través de diversas etapas, se aplicarán los conceptos de Business Intelligence utilizando Google Sheets desde la recolección y limpieza de datos, hasta la creación de informes sencillos.
+                </p>
+            </div>
+            <div class="bg-gradient-to-br from-brand-700 to-blue-600 rounded-2xl shadow-lg p-8 text-white flex flex-col justify-center items-center text-center">
+                <i class="fa-solid fa-database text-5xl mb-4 opacity-80"></i>
+                <h2 class="text-2xl font-bold mb-2">Datasets a trabajar</h2>
+                <p class="text-blue-100 mb-6">Descarga los archivos base para comenzar tu análisis.</p>
+                <a href="https://drive.google.com/file/d/1CWyKfUFmUbgMaf7pZIKhLVFKyeOb7gQ8/view?usp=drive_link" target="_blank" class="bg-white text-brand-700 hover:bg-brand-50 px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-arrow-down"></i> Descargar Datasets
+                </a>
+            </div>
+        </section>
+
+        <!-- ETAPA 1 -->
+        <h2 class="text-3xl font-extrabold mb-6 text-slate-800 flex items-center gap-3">
+            <span class="bg-brand-500 text-white w-10 h-10 rounded-lg flex items-center justify-center shadow-md">1</span> 
+            Etapa 1: Fundamentos y Calidad
+        </h2>
+        <div class="mb-4 inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold border border-orange-200">
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Obligatorio (Clases 1 a 4)
+        </div>
+        <p class="text-slate-600 mb-6 text-lg"><strong>Objetivo:</strong> Comprender los conceptos básicos de BI y evaluar la calidad de los datos de ventas.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <!-- Tarea 1 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-file-word text-blue-500 mr-2"></i> Captación del cliente</h3>
+                <p class="text-slate-600 text-sm">Diseñar un breve informe (en Google Docs) que explique la importancia de la aplicación de BI para un e-commerce. Incluir ejemplos de herramientas de BI, cómo las va a utilizar y los beneficios para el negocio.</p>
+            </div>
+            <!-- Tarea 2 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-red-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-scale-balanced text-red-500 mr-2"></i> Investigación Ética/Legal</h3>
+                <p class="text-slate-600 text-sm">Realizar un caso de estudio sobre una violación de ética en datos en el ámbito del comercio electrónico nacional o internacional. Elaborar un informe analizando el contexto, las faltas y las consecuencias, así como las lecciones aprendidas y errores a evitar.</p>
+            </div>
+            <!-- Tarea 3 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-green-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-globe text-green-500 mr-2"></i> Búsqueda de fuentes</h3>
+                <p class="text-slate-600 text-sm">Identificar tres fuentes públicas de datos relacionadas con el e-commerce, como estadísticas sobre ventas en línea o datos de comportamiento del consumidor. Crear una tabla que resuma cada fuente con enlaces, tipos de datos y potencial de análisis.</p>
+            </div>
+            <!-- Tarea 4 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition group relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-list-check text-purple-500 mr-2"></i> Obtención de datos</h3>
+                <p class="text-slate-600 text-sm">Importar el conjunto de datos de ventas a Google Sheets. Crear un formulario con el checklist de criterios de calidad de datos y aplicar el checklist al conjunto de datos, registrando los hallazgos en un informe breve.</p>
+            </div>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <h2 class="text-3xl font-extrabold mb-6 text-slate-800 flex items-center gap-3">
+            <span class="bg-brand-500 text-white w-10 h-10 rounded-lg flex items-center justify-center shadow-md">2</span> 
+            Etapa 2: Preparación y Análisis
+        </h2>
+        <div class="mb-4 inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold border border-orange-200">
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Obligatorio (Clases 5 a 8)
+        </div>
+        <p class="text-slate-600 mb-6 text-lg"><strong>Objetivo:</strong> Procesar y analizar los datos de ventas para extraer insights relevantes.</p>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <!-- Tarea 1 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-broom text-teal-500 mr-2"></i> Limpieza y preparación</h3>
+                <p class="text-slate-600 text-sm">Utilizar funciones de Google Sheets para limpiar y normalizar los datos. Documentar el proceso de limpieza.</p>
+            </div>
+            <!-- Tarea 2 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-indigo-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-link text-indigo-500 mr-2"></i> Integración de datos</h3>
+                <p class="text-slate-600 text-sm">Utilizar funciones para combinar fuentes de datos y crear una única estructura de datos que incluya información relevante de ambos.</p>
+            </div>
+            <!-- Tarea 3 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-pink-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-chart-pie text-pink-500 mr-2"></i> Análisis exploratorio</h3>
+                <p class="text-slate-600 text-sm">Calcular los valores de estadística descriptiva (media, mediana, moda, desviación estándar) sobre las ventas mensuales utilizando Google Sheets. Presentar los hallazgos en gráficos (barras o líneas) y un breve análisis.</p>
+            </div>
+            <!-- Tarea 4 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:border-brand-300 transition relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-yellow-400"></div>
+                <h3 class="font-bold text-lg mb-2 text-slate-800"><i class="fa-solid fa-table-columns text-yellow-500 mr-2"></i> Informe preliminar</h3>
+                <p class="text-slate-600 text-sm">Crear un informe en Google Sheets que contenga un análisis de ventas contando con tablas y gráficos que representen los hallazgos. Seguir los principios para obtener una visualización efectiva.</p>
+            </div>
+        </div>
+
+        <!-- PAUTAS DE ENTREGA -->
+        <div class="bg-slate-800 rounded-3xl shadow-xl overflow-hidden mb-12 text-slate-200">
+            <div class="bg-slate-900 px-8 py-6 border-b border-slate-700 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-paper-plane text-brand-400"></i> Pautas de Entrega y Evaluación
+                </h2>
+                <div class="bg-brand-500/20 text-brand-300 px-4 py-1 rounded-full text-sm font-semibold border border-brand-500/30">
+                    Plazo: 7 días (Clase 9)
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <h3 class="text-xl font-bold text-white mb-4"><i class="fa-regular fa-folder-open text-yellow-400 mr-2"></i> Formato y Nomenclatura</h3>
+                <p class="mb-6 bg-slate-700/50 p-4 rounded-lg font-mono text-sm text-yellow-200 border border-slate-600">
+                    Carpeta en Google Drive: <br> 
+                    <span class="text-white font-bold text-base">Apellido y nombre del alumno - Comisión xxx - TPI BI Consulting</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mb-4"><i class="fa-solid fa-box-archive text-green-400 mr-2"></i> Contenido Mínimo Requerido</h3>
+                
+                <div class="space-y-6">
+                    <!-- Req 1 -->
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 bg-slate-700 p-2 rounded text-slate-300"><i class="fa-solid fa-database"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white">Sets de datos originales</h4>
+                            <p class="text-slate-400 text-sm">Los archivos crudos descargados.</p>
+                        </div>
+                    </div>
+                    <!-- Req 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 bg-green-900/50 p-2 rounded text-green-400"><i class="fa-solid fa-file-excel"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white">Un archivo de Google Sheets</h4>
+                            <p class="text-slate-400 text-sm">Contendrá diferentes hojas, siguiendo el proceso de obtención, limpieza, preparación, normalización y combinación de los datos.</p>
+                        </div>
+                    </div>
+                    <!-- Req 3 -->
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 bg-blue-900/50 p-2 rounded text-blue-400"><i class="fa-solid fa-file-word"></i></div>
+                        <div class="w-full">
+                            <h4 class="font-bold text-white mb-2">Un archivo de Google Docs</h4>
+                            <p class="text-slate-400 text-sm mb-3">Contendrá un informe con las siguientes secciones:</p>
+                            
+                            <!-- Lista interactiva para los alumnos -->
+                            <div class="grid sm:grid-cols-2 gap-3 bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" class="task-checkbox w-5 h-5 rounded border-slate-500 text-brand-500 focus:ring-brand-500 bg-slate-700">
+                                    <span class="text-sm group-hover:text-white transition">1. Captación del cliente</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" class="task-checkbox w-5 h-5 rounded border-slate-500 text-brand-500 focus:ring-brand-500 bg-slate-700">
+                                    <span class="text-sm group-hover:text-white transition">2. Investigación contexto ético/legal</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" class="task-checkbox w-5 h-5 rounded border-slate-500 text-brand-500 focus:ring-brand-500 bg-slate-700">
+                                    <span class="text-sm group-hover:text-white transition">3. Investigación fuentes de datos</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" class="task-checkbox w-5 h-5 rounded border-slate-500 text-brand-500 focus:ring-brand-500 bg-slate-700">
+                                    <span class="text-sm group-hover:text-white transition">4. Status de calidad de datos</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" class="task-checkbox w-5 h-5 rounded border-slate-500 text-brand-500 focus:ring-brand-500 bg-slate-700">
+                                    <span class="text-sm group-hover:text-white transition">5. Modificaciones sobre los sets</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" class="task-checkbox w-5 h-5 rounded border-slate-500 text-brand-500 focus:ring-brand-500 bg-slate-700">
+                                    <span class="text-sm group-hover:text-white transition text-slate-400">6. Anexo con links (Opcional)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-700 text-sm">
+                    <p class="text-red-300 mb-2 font-bold"><i class="fa-solid fa-triangle-exclamation"></i> IMPORTANTE: Permisos</p>
+                    <p class="mb-4">Todos los archivos deben estar con <strong>permisos de lectura públicos</strong>, y de <strong>edición para el instructor</strong> responsable de evaluar.</p>
+                    <p>La entrega se realiza <strong>en el campus virtual</strong>, compartiendo el link a la carpeta de Google Drive, dentro de la clase 8 en el apartado de entrega.</p>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <a href="https://docs.google.com/spreadsheets/d/10jLbKwfrtrEU7Kma2ChEGuYc4fnGQ_FKJfd3Y1oBR1o/edit?usp=drive_link" target="_blank" class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-2 rounded-lg font-bold transition flex items-center gap-2">
+                        <i class="fa-solid fa-table-list"></i> Ver Rúbrica de Evaluación
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DICCIONARIO DE DATOS (Acordeones) -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-slate-800 flex items-center gap-3">
+                <i class="fa-solid fa-book-open text-brand-600"></i> Diccionario de Datos (Estructura)
+            </h2>
+            <p class="text-slate-600 mb-6">Información detallada sobre las 5 tablas incluidas en el Dataset, para consulta rápida durante tu modelado de datos.</p>
+            
+            <div class="space-y-3">
+                
+                <!-- Tabla 1 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                    <button class="w-full text-left px-6 py-4 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 transition flex justify-between items-center" onclick="toggleAccordion('tabla1')">
+                        <span><i class="fa-solid fa-table text-blue-500 mr-2"></i> 1. Tabla: Ventas</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </button>
+                    <div id="tabla1" class="accordion-content">
+                        <div class="p-6 text-sm text-slate-600 overflow-x-auto">
+                            <p class="mb-4">Información detallada sobre cada transacción de venta.</p>
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-700">
+                                        <th class="p-2 border">Columna</th>
+                                        <th class="p-2 border">Tipo</th>
+                                        <th class="p-2 border">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="p-2 border font-mono font-bold">ID_Venta</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Identificador único de la venta.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Fecha</td><td class="p-2 border text-xs bg-slate-100 text-center">DATE</td><td class="p-2 border">Fecha de la venta.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">ID_Cliente</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Identificador único del cliente.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">ID_Producto</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Identificador único del producto.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Cantidad</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Número de unidades vendidas.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Precio_Unitario</td><td class="p-2 border text-xs bg-slate-100 text-center">DECIMAL</td><td class="p-2 border">Precio por unidad del producto.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold text-brand-600">Total</td><td class="p-2 border text-xs bg-slate-100 text-center">DECIMAL</td><td class="p-2 border">Monto total (Cantidad x Precio_Unitario).</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Método_Pago</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Forma de pago (Tarjeta, PayPal).</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Estado</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Estado de la transacción (Completa, Pendiente, Cancelada).</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla 2 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                    <button class="w-full text-left px-6 py-4 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 transition flex justify-between items-center" onclick="toggleAccordion('tabla2')">
+                        <span><i class="fa-solid fa-users text-green-500 mr-2"></i> 2. Tabla: Clientes</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </button>
+                    <div id="tabla2" class="accordion-content">
+                        <div class="p-6 text-sm text-slate-600 overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-700">
+                                        <th class="p-2 border">Columna</th><th class="p-2 border">Tipo</th><th class="p-2 border">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="p-2 border font-mono font-bold">ID_Cliente</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Identificador único del cliente.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Nombre</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Nombre del cliente.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Apellido</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Apellido del cliente.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Email</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Dirección de correo.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Fecha_Registro</td><td class="p-2 border text-xs bg-slate-100 text-center">DATE</td><td class="p-2 border">Fecha de primer compra.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Región</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Ubicación o región.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla 3 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                    <button class="w-full text-left px-6 py-4 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 transition flex justify-between items-center" onclick="toggleAccordion('tabla3')">
+                        <span><i class="fa-solid fa-box-open text-orange-500 mr-2"></i> 3. Tabla: Productos</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </button>
+                    <div id="tabla3" class="accordion-content">
+                        <div class="p-6 text-sm text-slate-600 overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-700">
+                                        <th class="p-2 border">Columna</th><th class="p-2 border">Tipo</th><th class="p-2 border">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="p-2 border font-mono font-bold">ID_Producto</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Identificador único del producto.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Nombre_Producto</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Nombre descriptivo.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Categoría</td><td class="p-2 border text-xs bg-slate-100 text-center">TEXT</td><td class="p-2 border">Categoría o tipo (Electrónica, Ropa).</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Precio_Unitario</td><td class="p-2 border text-xs bg-slate-100 text-center">DECIMAL</td><td class="p-2 border">Precio por unidad.</td></tr>
+                                    <tr><td class="p-2 border font-mono font-bold">Stock</td><td class="p-2 border text-xs bg-slate-100 text-center">INT</td><td class="p-2 border">Cantidad en inventario.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tablas 4 y 5 -->
+                <div class="grid md:grid-cols-2 gap-3 mt-3">
+                    <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                        <button class="w-full text-left px-6 py-4 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 transition flex justify-between items-center" onclick="toggleAccordion('tabla4')">
+                            <span><i class="fa-regular fa-credit-card text-purple-500 mr-2"></i> 4. Métodos Pago</span>
+                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                        </button>
+                        <div id="tabla4" class="accordion-content">
+                            <div class="p-4 text-xs text-slate-600">
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li><strong>ID_Método:</strong> Identificador (INT)</li>
+                                    <li><strong>Método:</strong> Nombre (TEXT)</li>
+                                    <li><strong>Descripción:</strong> Detalle (TEXT)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                        <button class="w-full text-left px-6 py-4 font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 transition flex justify-between items-center" onclick="toggleAccordion('tabla5')">
+                            <span><i class="fa-solid fa-tags text-pink-500 mr-2"></i> 5. Categorías</span>
+                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                        </button>
+                        <div id="tabla5" class="accordion-content">
+                            <div class="p-4 text-xs text-slate-600">
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li><strong>ID_Categoría:</strong> Identificador (INT)</li>
+                                    <li><strong>Categoría:</strong> Nombre (TEXT)</li>
+                                    <li><strong>Descripción:</strong> Detalle (TEXT)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-6 flex gap-4">
+                <i class="fa-solid fa-lightbulb text-2xl text-blue-500 mt-1"></i>
+                <div>
+                    <h3 class="font-bold text-blue-900 mb-2">¿Cómo utilizar las tablas?</h3>
+                    <ul class="text-sm text-blue-800 space-y-2 list-disc pl-4">
+                        <li><strong>Análisis de Ventas:</strong> Relacionar <em>Ventas</em>, <em>Clientes</em> y <em>Productos</em> a través de `ID_Cliente` e `ID_Producto` para extraer insights.</li>
+                        <li><strong>Informe de Ingresos:</strong> Usar Ventas para calcular totales por método de pago o cliente.</li>
+                        <li><strong>Dashboard Interactivo:</strong> Combinar tablas para visualizar métricas (ventas por región, categoría, etc).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerta Cuestionario -->
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg mb-8 shadow-sm flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-bell text-red-500 text-xl animate-bounce"></i>
+                <div>
+                    <h4 class="font-bold text-red-800">¡Nuevo cuestionario en Campus!</h4>
+                    <p class="text-sm text-red-700">No olvides que los cuestionarios son de carácter obligatorio para poder avanzar con la cursada.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center text-slate-400 text-sm py-6 border-t border-slate-200">
+            <p>Diseñado con <i class="fa-solid fa-heart text-red-400"></i> para los alumnos de la comisión.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = content.previousElementSibling.querySelector('.fa-chevron-down');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = "rotate(0deg)";
+                icon.style.transition = "transform 0.3s";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+                icon.style.transition = "transform 0.3s";
+            }
+        }
+    </script>
+</body>
+</html>
